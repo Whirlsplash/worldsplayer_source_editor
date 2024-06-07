@@ -6,6 +6,22 @@ main() {
 
 	echo "Using WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR}"
 
+	if [[ -d source ]]; then
+		echo
+
+		read -p "source directory already exists. Do you want to overwrite it? [y/N] " -n 1 -r
+
+		echo
+
+		if [[ ! ${REPLY} =~ ^[Yy]$ ]]; then
+			echo "Exiting ..."
+
+			exit 1
+		fi
+
+		rm -rf source
+	fi
+
 	vineflower --explicit-generics=true "${WORLDSPLAYER_JAR}" source
 
 	if command -v git &>/dev/null; then
