@@ -2,7 +2,7 @@
 
 main() {
   # Replace this with your local location for the Java SE 6 JDK
-  local JAVAC=${JAVAC:-~/Downloads/jdk1.6.0_45}
+  local JAVAC=${JAVAC:-~/Downloads/jdk1.6.0_45/bin/javac}
 
   echo "Using JAVAC=${JAVAC}"
 
@@ -10,7 +10,7 @@ main() {
 
   find source -name "*.java" >sources.txt
 
-  ${JAVA_HOME}/bin/javac -source 1.6 -target 1.6 -Xlint:none -d out @sources.txt
+  ${JAVAC} -source 1.6 -target 1.6 -Xlint:none -d out @sources.txt
 
   jar cf out/worlds.jar -C out .
   jar cfm out/worlds.jar MANIFEST.MF -C out .
