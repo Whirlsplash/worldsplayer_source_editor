@@ -15,16 +15,15 @@ This project additionally requires the
 
 ## Decompiling WorldsPlayer
 
-To decompile WorldsPlayer, you will need to run the
-[`bin/decompile`](./bin/decompile) script. This script will decompile the full
-source tree of the WorldsPlayer Java Archive to the
+To decompile WorldsPlayer, you will need to run the `decompile` Make task. This
+task will decompile the full source tree of the WorldsPlayer Java Archive to the
 [`source`](./source) directory.
 
 You'll additionally need to provide the location of the WorldsPlayer Java
 Archive as the `WORLDSPLAYER_JAR` environment variable.
 
 ```bash
-WORLDSPLAYER_JAR=/path/to/worlds.jar bin/decompile
+WORLDSPLAYER_JAR=/path/to/worlds.jar make decompile
 ```
 
 ## Editing WorldsPlayer
@@ -33,16 +32,15 @@ You can edit the decompiled source files in any way you like.
 
 ## Recompiling WorldsPlayer
 
-To recompile WorldsPlayer, you will need to run the
-[`bin/recompile`](./bin/recompile) script. This script will recompile the full
-source tree of the WorldsPlayer Java Archive to the
+To recompile WorldsPlayer, you will need to run the `compile` Make task. This
+task will recompile the full source tree of the WorldsPlayer Java Archive to the
 [`out`](./out) directory.
 
 You'll additionally need to provide the location of the Java 6 compiler as the
 `JAVAC` environment variable.
 
 ```bash
-JAVAC=/path/to/javac bin/recompile
+JAVAC=/path/to/javac make compile
 ```
 
 The recompiled WorldsPlayer Java Archive will be located at
@@ -53,16 +51,16 @@ to run in the WorldsPlayer client.
 
 ```shell
 # Decompile WorldsPlayer
-WORLDSPLAYER_JAR=/path/to/worlds.jar bin/decompile
+WORLDSPLAYER_JAR=/path/to/worlds.jar make decompile
 
 # Edit the source files in the source directory
 find source -type f -name "*.java" -exec sed -i.bak 's/this\.setName(longID);/this.setName(longID + " (" + longID + ")");/' {} \;
 
 # Recompile WorldsPlayer
-JAVAC=/path/to/javac bin/recompile
+JAVAC=/path/to/javac make compile
 
 # Copy worlds.jar to your WorldsPlayer client
-cp out/worlds.jar /path/to/worlds.jar
+WORLDSPLAYER_JAR=/path/to/worlds.jar make install
 ```
 
 Now that we've changed the username format from `username` to `username (username)`, we can run WorldsPlayer to verify that the change has been applied.
