@@ -33,7 +33,7 @@ main() {
 		git commit -m "Initial commit" --no-gpg-sign
 
 		# Apply source patches
-		git apply ../*.patch
+		git apply ../patches/*.patch
 		git add .
 		git commit -m "Source patches" --no-gpg-sign
 
