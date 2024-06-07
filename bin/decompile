@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+main() {
+  # Replace this with your local path to worlds.jar
+  local WORLDS_JAR_PATH="${HOME}/.local/share/bottles/bottles/WorldsPlayer/drive_c/Program Files (x86)/Worlds Inc/WorldsPlayer - BowieFull/lib"
+
+  vineflower -ega=true "${WORLDS_JAR_PATH}/worlds.jar" source
+}
+
+main
