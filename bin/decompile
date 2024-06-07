@@ -2,9 +2,11 @@
 
 main() {
   # Replace this with your local path to worlds.jar
-  local WORLDS_JAR_PATH="${HOME}/.local/share/bottles/bottles/WorldsPlayer/drive_c/Program Files (x86)/Worlds Inc/WorldsPlayer - BowieFull/lib"
+  local WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR:-"${HOME}/.local/share/bottles/bottles/WorldsPlayer/drive_c/Program Files (x86)/Worlds Inc/WorldsPlayer - BowieFull/lib/worlds.jar"}
 
-  vineflower -ega=true "${WORLDS_JAR_PATH}/worlds.jar" source
+  echo "Using WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR}"
+
+  vineflower -ega=true "${WORLDSPLAYER_JAR}" source
 }
 
 main
