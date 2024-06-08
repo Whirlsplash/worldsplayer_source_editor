@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 
 main() {
-  # Replace this with your local path to worlds.jar
-  local WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR:-"${HOME}/.local/share/bottles/bottles/WorldsPlayer/drive_c/Program Files (x86)/Worlds Inc/WorldsPlayer - BowieFull/lib/worlds.jar"}
+	# Replace this with your local path to worlds.jar
+	local WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR:-"${HOME}/.local/share/bottles/bottles/WorldsPlayer/drive_c/Program Files (x86)/Worlds Inc/WorldsPlayer - BowieFull/lib/worlds.jar"}
 
-  echo "Using WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR}"
+	echo "Using WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR}"
 
-  vineflower -ega=true "${WORLDSPLAYER_JAR}" source
+	vineflower -ega=true "${WORLDSPLAYER_JAR}" source
+
+	if command -v git &>/dev/null; then
+		cd source || exit
+
+		git init
+		git add .
+		git commit -m "$(date || true)" --no-gpg-sign
+
+		cd ..
+	fi
 }
 
 main
