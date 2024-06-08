@@ -83,3 +83,17 @@ WorldsPlayer. These patches are located in the
 ## Licence
 
 This project is licensed with the [GNU General Public License v3.0](./LICENSE).
+
+### Disclaimer
+
+This project is intended for educational and research purposes only. It is not intended for use in commercial products or services. Any misuse of this project or the modified software is strictly prohibited and may lead to legal consequences.
+
+Please note that decompiling, editing, and recompiling software may violate the original software's terms of service and could have legal consequences. Ensure you are compliant with all relevant laws and agreements before using this project.
+
+Users must comply with the terms and conditions set by Worlds.com when using the WorldsPlayer software. Any modifications or use of the software outside of these terms may violate the original software's licensing agreement and could lead to legal action. Ensure you have the right to use and modify the software as permitted by applicable laws and agreements.
+
+Users are responsible for ensuring their use of this project and the modified software complies with all applicable laws, regulations, and agreements. The authors of this project are not liable for any actions taken by users that result in legal disputes or violations.
+
+### Acknowledgement
+
+WorldsPlayer and all related trademarks, logos, and materials are the property of Worlds.com and its licensors. This project is not affiliated with or endorsed by Worlds.com. All modifications made using this project are the sole responsibility of the user.
