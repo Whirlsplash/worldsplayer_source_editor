@@ -1,0 +1,150 @@
+diff --git i/NET/worlds/console/AvMenu.java w/NET/worlds/console/AvMenu.java
+index e406673..99d3484 100644
+--- i/NET/worlds/console/AvMenu.java
++++ w/NET/worlds/console/AvMenu.java
+@@ -371,7 +371,7 @@ public class AvMenu extends Menu implements AvatarDialogCallback {
+                result = findIndex(headTypes, bodyType);
+                return result < 0 ? 0 : result;
+             case 1:
+-               int p = str.lastIndexOf("NS");
++               p = str.lastIndexOf("NS");
+                if (p >= 0) {
+                   result = "qhd0DHQ".indexOf(str.charAt(p + 2));
+                }
+@@ -379,7 +379,7 @@ public class AvMenu extends Menu implements AvatarDialogCallback {
+                return result < 0 ? 3 : result;
+             case 2:
+                int head = str.lastIndexOf("NS");
+-               int p = str.lastIndexOf("DgT");
++               p = str.lastIndexOf("DgT");
+                if (p > head) {
+                   p += 3;
+ 
+@@ -412,7 +412,7 @@ public class AvMenu extends Menu implements AvatarDialogCallback {
+ 
+                return result < 0 ? 0 : result;
+             default:
+-               int p = PosableShape.getMatPosition(str, "fabcdeOVKY".charAt(index - 3));
++               p = PosableShape.getMatPosition(str, "fabcdeOVKY".charAt(index - 3));
+                if (p >= 0 && str.charAt(p) == 'C' && str.charAt(p + 1) == '_') {
+                   char letter = str.charAt(p + 2);
+                   if (letter >= 'A' && letter <= 'Z') {
+diff --git i/NET/worlds/console/ExpireDialog.java w/NET/worlds/console/ExpireDialog.java
+index 98552c6..e850333 100644
+--- i/NET/worlds/console/ExpireDialog.java
++++ w/NET/worlds/console/ExpireDialog.java
+@@ -16,7 +16,7 @@ class ExpireDialog extends Dialog {
+    private static Font font = new Font(Console.message("ButtonFont"), 0, 12);
+ 
+    public ExpireDialog(Date expireDate) {
+-      super(null, GammaFrame.getDefaultTitle(), false);
++      super((Dialog)null, GammaFrame.getDefaultTitle(), false);
+       this.setLayout(new BorderLayout(15, 15));
+       this.add("Center", new MultiLineLabel(Console.message("beta-expired") + DateFormat.getDateTimeInstance().format(expireDate), 20, 20));
+       this.button = new Button(Console.message("OK"));
+diff --git i/NET/worlds/network/ServerInputStream.java w/NET/worlds/network/ServerInputStream.java
+index 83c0cb7..bf1dcf7 100644
+--- i/NET/worlds/network/ServerInputStream.java
++++ w/NET/worlds/network/ServerInputStream.java
+@@ -231,7 +231,7 @@ public class ServerInputStream extends FilterInputStream {
+                         throw new UTFDataFormatException();
+                      }
+ 
+-                     int char2 = this.readUnsignedByte();
++                     char2 = this.readUnsignedByte();
+                      int char3 = this.readUnsignedByte();
+                      if ((char2 & 192) != 128 || (char3 & 192) != 128) {
+                         throw new UTFDataFormatException();
+diff --git i/NET/worlds/network/URL.java w/NET/worlds/network/URL.java
+index b340792..348860f 100644
+--- i/NET/worlds/network/URL.java
++++ w/NET/worlds/network/URL.java
+@@ -76,7 +76,7 @@ public class URL implements Serializable {
+    }
+ 
+    public URL(String urlstr) throws MalformedURLException {
+-      this(null, urlstr);
++      this((URL)null, urlstr);
+    }
+ 
+    public static URL make(String s) {
+diff --git i/NET/worlds/network/netData.java w/NET/worlds/network/netData.java
+index c3375a3..79e8e7b 100644
+--- i/NET/worlds/network/netData.java
++++ w/NET/worlds/network/netData.java
+@@ -87,7 +87,7 @@ class netData {
+                      throw new UTFDataFormatException();
+                   }
+ 
+-                  int char2 = this.getByte() & 255;
++                  char2 = this.getByte() & 255;
+                   int char3 = this.getByte() & 255;
+                   if ((char2 & 192) != 128 || (char3 & 192) != 128) {
+                      throw new UTFDataFormatException();
+diff --git i/NET/worlds/scape/AnimatedAction.java w/NET/worlds/scape/AnimatedAction.java
+index c213847..6fbf5e4 100644
+--- i/NET/worlds/scape/AnimatedAction.java
++++ w/NET/worlds/scape/AnimatedAction.java
+@@ -146,7 +146,7 @@ public class AnimatedAction implements AnimatedActionCallback, TimerCallback {
+             this.motionComplete(0);
+             break;
+          case 8:
+-            Console c = Console.getActive();
++            c = Console.getActive();
+             if (c instanceof DefaultConsole) {
+                Pilot p = Pilot.getActive();
+                p.setOutsideCameraMode(this._oldMode, this._oldSpeed);
+diff --git i/NET/worlds/scape/BackgroundLoader.java w/NET/worlds/scape/BackgroundLoader.java
+index d38c257..573c854 100644
+--- i/NET/worlds/scape/BackgroundLoader.java
++++ w/NET/worlds/scape/BackgroundLoader.java
+@@ -45,7 +45,7 @@ public class BackgroundLoader implements MainCallback, Runnable {
+ 
+    @Override
+    public void run() {
+-      if ($assertionsDisabled || Thread.currentThread() == this.asyncLoaderThread) {
++      if (Thread.currentThread() == this.asyncLoaderThread) {
+          while (true) {
+             BackgroundLoaderElement ele = this.asyncLoadQueue.getItem();
+             ele.asyncLoad();
+diff --git i/NET/worlds/scape/BooleanFieldEditorDialog.java w/NET/worlds/scape/BooleanFieldEditorDialog.java
+index 8585d44..8197b0d 100644
+--- i/NET/worlds/scape/BooleanFieldEditorDialog.java
++++ w/NET/worlds/scape/BooleanFieldEditorDialog.java
+@@ -12,7 +12,9 @@ class BooleanFieldEditorDialog extends CheckboxEditorDialog {
+ 
+    @Override
+    protected int getValue() {
+-      return this.property.get() ? 1 : 0;
++      Boolean value = (Boolean) this.property.get();
++
++      return (value != null && value) ? 1 : 0;
+    }
+ 
+    @Override
+diff --git i/NET/worlds/scape/PosableShape.java w/NET/worlds/scape/PosableShape.java
+index 042f4b2..ad7ca6a 100644
+--- i/NET/worlds/scape/PosableShape.java
++++ w/NET/worlds/scape/PosableShape.java
+@@ -63,7 +63,7 @@ public class PosableShape extends Shape implements FrameHandler, Prerenderable,
+       new Color(255, 255, 153)
+    };
+    private int scanPos;
+-   private static Material origMat = new Material(null);
++   private static Material origMat = new Material((Texture)null);
+    public static String base64 = "-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+";
+    private static String[] permittedList = ServerTableManager.instance().getTable("permittedList");
+    private static String[] faceList = ServerTableManager.instance().getTable("faceList");
+diff --git i/NET/worlds/scape/Transform.java w/NET/worlds/scape/Transform.java
+index 8b7bc26..f19c5be 100644
+--- i/NET/worlds/scape/Transform.java
++++ w/NET/worlds/scape/Transform.java
+@@ -289,7 +289,7 @@ public class Transform extends SuperRoot {
+             this.xScale = r.restoreFloat();
+             this.yScale = r.restoreFloat();
+             this.zScale = r.restoreFloat();
+-            float[] guts = new float[16];
++            guts = new float[16];
+ 
+             for (int i = 0; i < 16; i++) {
+                guts[i] = r.restoreFloat();

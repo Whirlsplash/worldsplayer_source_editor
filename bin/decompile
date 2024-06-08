@@ -6,14 +6,20 @@ main() {
 
 	echo "Using WORLDSPLAYER_JAR=${WORLDSPLAYER_JAR}"
 
-	vineflower -ega=true "${WORLDSPLAYER_JAR}" source
+	vineflower --explicit-generics=true "${WORLDSPLAYER_JAR}" source
 
 	if command -v git &>/dev/null; then
 		cd source || exit
 
+		# Initialise from decompiled source
 		git init
 		git add .
-		git commit -m "$(date || true)" --no-gpg-sign
+		git commit -m "Initial commit" --no-gpg-sign
+
+		# Apply source patches
+		git apply ../*.patch
+		git add .
+		git commit -m "Source patches" --no-gpg-sign
 
 		cd ..
 	fi
