@@ -56,7 +56,7 @@ to run in the WorldsPlayer client.
 WORLDSPLAYER_JAR=/path/to/worlds.jar bin/decompile
 
 # Edit the source files in the source directory
-vi source/...
+find source -type f -name "*.java" -exec sed -i.bak 's/this\.setName(longID);/this.setName(longID + " (" + longID + ")");/' {} \;
 
 # Recompile WorldsPlayer
 JAVAC=/path/to/javac bin/recompile
@@ -64,6 +64,10 @@ JAVAC=/path/to/javac bin/recompile
 # Copy worlds.jar to your WorldsPlayer client
 cp out/worlds.jar /path/to/worlds.jar
 ```
+
+Now that we've changed the username format from `username` to `username (username)`, we can run WorldsPlayer to verify that the change has been applied.
+
+![](./assets/step_by_step.png)
 
 # Licence
 
