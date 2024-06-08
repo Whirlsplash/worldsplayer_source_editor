@@ -1,0 +1,13 @@
+diff --git c/NET/worlds/core/Std.java i/NET/worlds/core/Std.java
+index ee83be5..3af1bf6 100644
+--- c/NET/worlds/core/Std.java
++++ i/NET/worlds/core/Std.java
+@@ -20,7 +20,7 @@ public class Std {
+    public static void assertFail(String file, int line) {
+       String msg = "Assertion failed: file " + file + ", line " + line;
+       dumpStackTrace();
+-      exit();
++      // exit();
+    }
+ 
+    public static String replaceStr(String in, String seek, String replace) {
