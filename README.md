@@ -1,10 +1,13 @@
-# WorldsPlayer Source Editor
+# Independent Source Editor for WorldsPlayer
 
 This project enables anyone to fully decompile WorldsPlayer to Java source
 files, edit them in any way, and recompile them back to a working WorldsPlayer
 Java Archive.
 
 ## Usage
+
+> [!IMPORTANT]
+> This tool should only be used in compliance with the terms and conditions of Worlds.com and applicable laws. The authors of this tool are not responsible for any misuse or legal implications arising from its use.
 
 WorldsPlayer, and this project, require Java 6 to run. You can obtain a copy
 of Java 6 for your platform from the [Oracle Java Archive](https://www.oracle.com/java/technologies/javase-java-archive-javase6-downloads.html).
