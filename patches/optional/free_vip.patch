@@ -1,0 +1,30 @@
+diff --git i/NET/worlds/console/Console.java w/NET/worlds/console/Console.java
+index 1fc32ab..b6231ef 100644
+--- i/NET/worlds/console/Console.java
++++ w/NET/worlds/console/Console.java
+@@ -637,11 +637,13 @@ public abstract class Console extends SuperRoot implements URLSelf, MainCallback
+    public static final native int getVolumeInfo();
+ 
+    public boolean getVIPAvatars() {
+-      return vip > 0 || isRedLightWorld;
++      // return vip > 0 || isRedLightWorld;
++      return true;
+    }
+ 
+    public boolean getVIP() {
+-      return vip > 0;
++      // return vip > 0;
++      return true;
+    }
+ 
+    public void setVIP(boolean vip) {
+@@ -654,7 +656,8 @@ public abstract class Console extends SuperRoot implements URLSelf, MainCallback
+    }
+ 
+    public boolean getFullVIP() {
+-      return vip == 2;
++      // return vip == 2;
++      return true;
+    }
+ 
+    public void setFullVIP(boolean fullVIP) {
